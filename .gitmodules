@@ -1,0 +1,3 @@
+[submodule "QUaServer"]
+	path = QUaServer
+	url = https://github.com/QUaServer/QUaServer
