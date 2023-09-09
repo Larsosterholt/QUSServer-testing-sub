@@ -11,9 +11,12 @@ include($$PWD/../QUaServer/src/wrapper/quaserver.pri)
 include($$PWD/../QUaServer/src/helper/add_qt_path_win.pri)
 
 
-HEADERS += customvar.h
-SOURCES += customvar.cpp
+HEADERS += customvar.h \
+    UserModel.h \
+    temperaturesensor.h
 
+SOURCES += customvar.cpp \
+    temperaturesensor.cpp
 
 SOURCES += \
         main.cpp
