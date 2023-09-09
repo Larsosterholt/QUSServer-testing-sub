@@ -4,6 +4,8 @@
 #include <QUaBaseObject>
 #include <QUaBaseDataVariable>
 #include <QUaProperty>
+#include <QCoreApplication>
+
 
 class TemperatureSensor : public QUaBaseObject
 {

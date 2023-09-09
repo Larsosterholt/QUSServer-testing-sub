@@ -41,11 +41,13 @@ QUaBaseDataVariable * TemperatureSensor::currentValue()
 void TemperatureSensor::turnOn()
 {
 	status()->setValue("On");
+    qDebug() << "Sensor on\n";
 }
 
 void TemperatureSensor::turnOff()
 {
 	status()->setValue("Off");
+    qDebug() << "Sensor on\n";
 }
 
 void TemperatureSensor::remove()
