@@ -38,7 +38,6 @@ QUaAccessLevel user1CanWrite(const QString &strUserName)
     else
     {
         access.bits.bWrite = false;
-        qDebug() << "Only user1 can write\n";
     }
     return access;
 }
