@@ -19,10 +19,11 @@ client.connect()
 # Loop to continuously update temperature
 while True:
     # Read current temperature from server
-    temp_var = client.get_node("Writeble_var")
+    
+    temp_var = client.get_node("ns=0;i=50254") 
     current_temp = temp_var.get_value()
 
-    # Generate simulated data
+    # Generate simulated datacd 
     simulated_temp = current_temp + random.uniform(-1, 1)
 
     # Write new temperature back to server
@@ -31,3 +32,4 @@ while True:
     # Log and wait
     print(f"Updated temperature to {simulated_temp}")
     time.sleep(1)
+    #test = client.get_values(50254)0, "Writeble_var"

@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     // Creating a varible user1 can write
     auto writeble_var = objsFolder->addProperty("Writeble_var");
     writeble_var->setWriteAccess(true);
-    writeble_var->setValue(123);
+    writeble_var->setValue(123.0);
     writeble_var->setUserAccessLevelCallback(&user1CanWrite);
 
     qDebug() << "Added temperature sensors\n";
