@@ -1,5 +1,6 @@
 # Use an official Ubuntu as a parent image
-FROM ubuntu:latest
+#FROM ubuntu:latest
+FROM arm32v7/ubuntu:latest
 
 # Install Qt and other dependencies
 RUN apt-get update && apt-get install -y \
@@ -7,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     g++ \
     make \
     git 
+RUN apt-get install -y cmake libzmq3-dev
+
 
 RUN apt install -y build-essential
 # Set the working directory in the container
@@ -16,14 +19,16 @@ WORKDIR /app
 COPY . /app
 
 # Compile the Qt project
-RUN apt-get install -y cmake libzmq3-dev
-RUN qmake /app/QUaServer/src/amalgamation/amalgamation.pro #/app/QUaServer/src/amalgamation
+WORKDIR /app/QUaServer/src/amalgamation/
+RUN qmake amalgamation.pro #/app/QUaServer/src/amalgamation
 RUN make all
-RUN qmake /app/MyServer/MyServer.pro
+
+WORKDIR /app/MyServer/
+RUN qmake MyServer.pro
 RUN make
 
 # Make port 4840 available to the world outside this container
-#EXPOSE 4840
+EXPOSE 4841
 
 # Run your server when the container launches
-#CMD ["./MyServer"]
+CMD ["./MyServer"]

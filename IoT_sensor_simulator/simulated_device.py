@@ -20,7 +20,7 @@ client.connect()
 while True:
     # Read current temperature from server
     
-    temp_var = client.get_node("ns=0;i=50242") 
+    temp_var = client.get_node("ns=0;i=50241") 
     current_temp = temp_var.get_value()
 
     # Generate simulated datacd 
