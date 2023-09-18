@@ -20,7 +20,7 @@ client.connect()
 while True:
     # Read current temperature from server
     
-    temp_var = client.get_node("ns=0;i=50254") 
+    temp_var = client.get_node("ns=0;i=50242") 
     current_temp = temp_var.get_value()
 
     # Generate simulated datacd 
@@ -32,4 +32,3 @@ while True:
     # Log and wait
     print(f"Updated temperature to {simulated_temp}")
     time.sleep(1)
-    #test = client.get_values(50254)0, "Writeble_var"

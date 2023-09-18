@@ -77,17 +77,20 @@ int main(int argc, char *argv[])
     // create new type instances
     QUaFolderObject * objsFolder = server.objectsFolder();
 
-    objsFolder->addChild<TemperatureSensor>("Temperature_sensor_1");
-    objsFolder->addChild<TemperatureSensor>("Temperature_sensor_2");
-    objsFolder->addChild<TemperatureSensor>("Temperature_sensor_3");
+    //objsFolder->addChild<TemperatureSensor>("Temperature_sensor_1");
+    //objsFolder->addChild<TemperatureSensor>("Temperature_sensor_2");
+    //objsFolder->addChild<TemperatureSensor>("Temperature_sensor_3");
 
     // Creating a varible user1 can write
-    auto writeble_var = objsFolder->addProperty("Writeble_var");
+    auto writeble_var = objsFolder->addProperty("User_writeble_var");
     writeble_var->setWriteAccess(true);
     writeble_var->setValue(123.0);
     writeble_var->setUserAccessLevelCallback(&user1CanWrite);
+    qDebug() << "Added User_writeble_var\n";
 
-    qDebug() << "Added temperature sensors\n";
+    auto test = objsFolder->addChild<TemperatureSensor>("Temperature_sensor_1");
+    test->currentValue()->setValue(44.4);
+    test->currentValue()->setWriteAccess(true);
 
     // Start the server
     server.start();
