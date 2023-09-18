@@ -18,16 +18,17 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
-# Compile the Qt project
+# Compile the SDK
 WORKDIR /app/QUaServer/src/amalgamation/
 RUN qmake amalgamation.pro #/app/QUaServer/src/amalgamation
 RUN make all
 
+# Compile the server
 WORKDIR /app/MyServer/
 RUN qmake MyServer.pro
 RUN make
 
-# Make port 4840 available to the world outside this container
+# Make port 4841 available to the world outside this container
 EXPOSE 4841
 
 # Run your server when the container launches
