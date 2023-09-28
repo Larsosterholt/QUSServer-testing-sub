@@ -1,0 +1,17 @@
+QUaServer/examples/
+build/
+build*/
+build-MyServer-Desktop_Qt_6_5_2_GCC_64bit-Debug
+UAExpert
+IoT_sensor_simulator
+
+.git
+.gitignore
+.github
+.clang-format
+AUTHORS
+CONTRIBUTING.md
+CONTRIBUTORS
+LICENSE
+README.md
+doc

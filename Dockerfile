@@ -1,14 +1,19 @@
 # Use an official Ubuntu as a parent image
-#FROM ubuntu:latest
-FROM arm32v7/ubuntu:latest
+FROM ubuntu:latest 
+#sudo docker build -t my_server_image .
+
+#sudo docker buildx build --output type=docker --platform linux/arm/v7 -t my_server_image_raspberry_pi .
+#FROM arm32v7/ubuntu:latest
 
 # Install Qt and other dependencies
 RUN apt-get update && apt-get install -y \
     qtbase5-dev \
+    qt5-qmake \
     g++ \
-    make \
-    git 
-RUN apt-get install -y cmake libzmq3-dev
+    make 
+#    git \
+
+RUN    apt-get install -y cmake libzmq3-dev
 
 
 RUN apt install -y build-essential
